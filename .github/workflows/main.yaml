@@ -12,6 +12,6 @@ jobs:
         run: |
           npm init -y
           npm install @actions/core
-          npm install @actions.github
+          npm install @actions/github
       - name: Add & Commit
         uses: EndBug/add-and-commit@v5.0.0

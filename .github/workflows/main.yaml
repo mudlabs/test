@@ -1,0 +1,15 @@
+name: NMP
+on:
+  push:
+    
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: NPM
+        run: |
+          npm install @actions/core
+          npm install @actions/github
+      - name: Commit
+        uses: EndBug/add-and-commit@v5.0.0

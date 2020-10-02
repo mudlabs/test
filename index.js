@@ -7,8 +7,8 @@ const github = require("@actions/github");
     const issue = core.getInput("issue");
     const octokit = github.getOctokit(token);
     const post = await octokit.issues.createComment({
-      owner: github.content.payload.repository.owner.login,
-      repo: github.content.payload.repository.name,
+      owner: github.context.payload.repository.owner.login,
+      repo: github.context.payload.repository.name,
       issue_number: issue,
       body: "I'm a bot comment"
     });

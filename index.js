@@ -1,4 +1,19 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-console.log("HELLO")
+(async function(){
+  try {
+    const token = core.getInput("token");
+    const issue = core.getInput("issue");
+    const octokit = github.getOctokit(token);
+    const post = await octokit.issues.createComment({
+      owner: github.content.payload.repository.owner.login,
+      repo: github.content.payload.repository.name,
+      issue_number: issue,
+      body: "I'm a bot comment"
+    });
+    console.log(post);
+  } catch (error) {
+    core.setFailed(error);
+  }
+})();

@@ -6,6 +6,7 @@ const github = require("@actions/github");
     const token = core.getInput("token");
     const issue = core.getInput("issue");
     const octokit = github.getOctokit(token);
+    console.log(github, github.context)
     const post = await octokit.issues.createComment({
       owner: github.context.payload.repository.owner.login,
       repo: github.context.payload.repository.name,

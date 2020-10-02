@@ -1,0 +1,17 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  prep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Bash
+        run: |
+          npm init -y
+          npm install @actions/core
+          npm install @actions.github
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v5.0.0
